@@ -1,0 +1,73 @@
+# Installing CyberPanel on Ubuntu 22.04
+
+CyberPanel is a next-generation web hosting control panel powered by OpenLiteSpeed. This guide will help you install CyberPanel on Ubuntu 22.04.
+
+## Prerequisites
+- A fresh Ubuntu 22.04 server.
+- Root access to the server.
+- A static IP address.
+
+---
+
+## Installation Steps
+
+### Step 1: Login to Your Server via SSH
+First, log in to your server as the root user. Replace `<ip-address>` with your server’s IP address.
+
+```bash
+ssh root@<ip-address>
+```
+
+---
+
+### Step 2: Update Your Server
+Run the following command to update your system packages:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+---
+
+### Step 3: Run the CyberPanel Installation Script
+Execute the installation script using `curl` or `wget`. This will download and run the CyberPanel installer.
+
+```bash
+sh <(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh)
+```
+
+---
+
+### Step 4: Installation Configuration
+During the installation process:
+1. **Default Options**: Select the default options provided by the installer.  
+2. **SQL Configuration**: When prompted for SQL installation, **select "No"** to skip it.  
+
+The installer will automatically configure CyberPanel and its dependencies.
+
+---
+
+### Step 5: Access CyberPanel
+Once the installation is complete, you can access CyberPanel via your web browser.
+
+- Open your browser and navigate to:  
+  `https://<ip-address>:8090`
+
+- Log in using the default credentials:
+  - **Username**: `admin`
+  - **Password**: (provided during installation)
+
+---
+
+## Notes
+- Ensure port `8090` is open in your firewall for remote access.
+- After logging in, update your admin password for security.
+
+---
+
+## Troubleshooting
+If you encounter any issues during installation, refer to the official [CyberPanel Documentation](https://cyberpanel.net/docs/) or open an issue in this repository.
+
+---
+
+Feel free to modify or fork this documentation to suit your needs!
